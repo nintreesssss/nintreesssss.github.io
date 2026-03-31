@@ -13,8 +13,7 @@
 - Thymeleaf（动态模板引擎）
 - Bootstrap 5（响应式布局）
 - Render（免费部署平台）
-
-欢迎 star 或 fork！  
+ 
 联系我：X @nintrees | Email nintreesssss@gmail.com
 
 # 始于2026 年 1 月
