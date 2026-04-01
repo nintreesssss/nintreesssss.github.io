@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>nintreesssss - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <main class="main-layout">
@@ -49,8 +49,10 @@
       
       <!-- Tree Illustration Placeholder -->
       <div class="tree-container">
-        <div class="image-placeholder tree-placeholder">
-          <span>Tree Illustration</span>
+        <!-- 将这里的 src 替换为你的树插图路径，例如 images/tree.png -->
+        <img src="images/tree-placeholder.png" alt="Tree Illustration" class="tree-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="image-placeholder tree-placeholder" style="display: none;">
+          <span>Tree Illustration<br>请将图片放入 images/ 文件夹</span>
         </div>
       </div>
     </aside>
@@ -62,8 +64,10 @@
       <section class="section-panel" id="information-section">
         <!-- Profile Image -->
         <div class="profile-image-container">
-          <div class="image-placeholder profile-placeholder">
-            <span>Profile Image</span>
+          <!-- 将这里的 src 替换为你的头像路径，例如 images/profile.jpg -->
+          <img src="images/profile-placeholder.jpg" alt="Profile" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="image-placeholder profile-placeholder" style="display: none;">
+            <span>Profile Image<br>请将图片放入 images/ 文件夹</span>
           </div>
         </div>
         
@@ -127,12 +131,9 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                <div class="image-placeholder project-image" style="width: 100%; aspect-ratio: 16/9;">
-                  <span>3DGS Demo 1</span>
-                </div>
-                <div class="image-placeholder project-image" style="width: 100%; aspect-ratio: 16/9;">
-                  <span>3DGS Demo 2</span>
-                </div>
+                <!-- 替换为你的项目图片 -->
+                <img src="images/projects/3dgs-demo1.png" alt="3DGS Demo 1" class="project-image" onerror="this.outerHTML='<div class=\'image-placeholder project-image\' style=\'width:100%;aspect-ratio:16/9\'><span>3DGS Demo 1</span></div>'">
+                <img src="images/projects/3dgs-demo2.png" alt="3DGS Demo 2" class="project-image" onerror="this.outerHTML='<div class=\'image-placeholder project-image\' style=\'width:100%;aspect-ratio:16/9\'><span>3DGS Demo 2</span></div>'">
               </div>
             </div>
           </div>
@@ -149,9 +150,7 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                <div class="image-placeholder project-image" style="width: 80%; aspect-ratio: 1/1; border-color: #00d4ff;">
-                  <span>Path Tracing - Cornell Box</span>
-                </div>
+                <img src="images/projects/path-tracing.png" alt="Path Tracing" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Path Tracing - Cornell Box</span></div>'">
               </div>
             </div>
           </div>
@@ -168,9 +167,7 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                <div class="image-placeholder project-image" style="width: 80%; aspect-ratio: 16/9; border-color: #00d4ff;">
-                  <span>Ray Tracing - Bunny</span>
-                </div>
+                <img src="images/projects/ray-tracing.png" alt="Ray Tracing" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Ray Tracing - Bunny</span></div>'">
               </div>
             </div>
           </div>
@@ -187,9 +184,7 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                <div class="image-placeholder project-image" style="width: 80%; aspect-ratio: 16/9; border-color: #00d4ff;">
-                  <span>Moller-Trumbore Demo</span>
-                </div>
+                <img src="images/projects/moller-trumbore.png" alt="Moller-Trumbore" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Moller-Trumbore Demo</span></div>'">
               </div>
             </div>
           </div>
@@ -206,15 +201,9 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images project-images-row">
-                <div class="image-placeholder project-image" style="width: 30%; aspect-ratio: 1/1;">
-                  <span>Cow Model 1</span>
-                </div>
-                <div class="image-placeholder project-image" style="width: 30%; aspect-ratio: 1/1;">
-                  <span>Cow Model 2</span>
-                </div>
-                <div class="image-placeholder project-image" style="width: 30%; aspect-ratio: 1/1;">
-                  <span>Cow Model 3</span>
-                </div>
+                <img src="images/projects/cow1.png" alt="Cow Model 1" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 1</span></div>'">
+                <img src="images/projects/cow2.png" alt="Cow Model 2" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 2</span></div>'">
+                <img src="images/projects/cow3.png" alt="Cow Model 3" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 3</span></div>'">
               </div>
             </div>
           </div>
@@ -227,41 +216,6 @@
     </div>
   </main>
 
-  <script>
-    let currentSection = null;
-
-    function goHome() {
-      currentSection = null;
-      document.getElementById('content-area').style.display = 'none';
-      document.getElementById('sidebar').classList.add('full-width');
-      document.getElementById('nav-projects').classList.remove('active');
-      document.getElementById('nav-information').classList.remove('active');
-    }
-
-    function showSection(section) {
-      currentSection = section;
-      document.getElementById('content-area').style.display = 'block';
-      document.getElementById('sidebar').classList.remove('full-width');
-      
-      // Hide all sections
-      document.getElementById('information-section').style.display = 'none';
-      document.getElementById('projects-section').style.display = 'none';
-      
-      // Show selected section
-      document.getElementById(section + '-section').style.display = 'block';
-      
-      // Update nav active state
-      document.getElementById('nav-projects').classList.remove('active');
-      document.getElementById('nav-information').classList.remove('active');
-      document.getElementById('nav-' + section).classList.add('active');
-    }
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Initialize: show home state
-    goHome();
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
