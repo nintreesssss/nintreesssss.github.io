@@ -1,79 +1,120 @@
-/* 基础变量还原 */
-:root {
+/* 整合你最新提供的变量 */
+html {
+    --mobile-scale: 1.4;
+    --mobile-padding-offset: 0.66;
     --base-size: 18.8px;
-    --border-color: rgba(0, 0, 0, 0.15);
 }
 
 body {
     margin: 0;
-    background: #fff;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: var(--base-size);
+    padding: 0;
+    background-color: #f0f0f0; /* 视频里的浅灰背景色 */
+    /* 你的配色色板 */
+    --swatch-1: rgba(0, 0, 0, 0.85);
+    --swatch-5: rgba(0, 0, 0, 0.25);
     display: flex;
 }
 
-/* 左侧固定：不参与滚动 */
+/* 侧边栏还原 */
 .cargo-sidebar {
     position: fixed;
     width: 300px;
+    padding: 1.5rem 2.5rem;
     height: 100vh;
-    padding: 1.5rem 2rem;
-    z-index: 10;
+    z-index: 100;
 }
 
-.logo { font-weight: bold; margin-bottom: 2rem; }
+.logo {
+    font-family: "Diatype Variable", Helvetica, Arial;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
 
 .navigation a {
     display: block;
     text-decoration: none;
-    color: #666;
-    margin-bottom: 0.3rem;
+    color: var(--swatch-1);
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
 }
-.navigation a.active { color: #000; font-weight: bold; }
 
-.bio-footer { margin-top: 3rem; font-size: 0.9rem; line-height: 1.4; }
-.highlight { background: #FFFF00; padding: 0 2px; }
-.email { text-decoration: underline; margin-top: 1rem; }
+.navigation a.active {
+    font-weight: bold;
+}
 
-/* 右侧核心布局：1:1 还原你发给我的 CSS 数值 */
+/* 右侧内容容器 1:1 */
 .cargo-main-container {
     width: 100%;
     min-height: 100vh;
     display: flex;
-    justify-content: flex-start; /* 对应 [id="R1726258846"].page */
+    justify-content: flex-start;
 }
 
 .content-wrapper {
-    max-width: 44%;        /* 对应你的 max-width: 44% */
-    padding-left: 10rem;   /* 对应你的 padding-left: 10rem */
+    max-width: 44%; /* 综合两个 CSS，这里保持你最开始要求的 44% */
+    padding-left: 10rem;
     padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    flex-grow: 1;
 }
 
 .content-section {
-    border-left: 0.1rem solid var(--border-color); /* 对应你的细线 */
+    display: none; /* 默认隐藏 */
+    border-left: 0.1rem solid var(--swatch-5);
     padding-left: 2rem;
-    min-height: 100vh;
 }
 
-/* Profile 内部网格 */
-.hero-image img { width: 100%; height: auto; }
-.caption { font-size: 0.8rem; text-align: center; margin-top: 10px; }
-
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 40px;
+.content-section.active {
+    display: block;
 }
-.grid-item h3 { font-size: 0.8rem; border-bottom: 1px solid #eee; margin-bottom: 10px; }
-.grid-item p { font-size: 0.8rem; }
 
-/* Project 列表 */
-.project-entry {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 0;
-    border-bottom: 0.1rem solid var(--border-color);
+/* 文字排版还原：bodycopy 样式 */
+bodycopy, .bodycopy {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--swatch-1);
+    font-family: "Diatype Variable", sans-serif;
+    line-height: 1.2;
+    display: block;
+}
+
+h2 {
+    font-family: "Marist Variable", serif; /* 衬线体标题 */
+    font-size: 1.2rem; /* 根据视频体感调整，CSS里写2.4rem可能太大，可自行微调 */
+    font-weight: 350;
+    margin-bottom: 0.5rem;
+}
+
+hr {
+    background: rgba(0, 0, 0, 0.7);
+    height: 3px;
+    margin-top: 1.4rem;
+    margin-bottom: 0.25rem;
+    border: 0;
+}
+
+.caption {
+    font-size: 0.833rem;
+    color: var(--swatch-2);
+    margin-top: 0.6rem;
+    display: block;
+}
+
+.highlight {
+    background-color: #FFFF00;
+    padding: 0 4px;
+}
+
+/* 响应式：移动端还原 */
+@media (max-width: 768px) {
+    body { flex-direction: column; }
+    .cargo-sidebar { position: static; width: 100%; height: auto; }
+    .content-wrapper { max-width: 100%; padding-left: 2rem; padding-right: 2rem; }
+    .content-section { border-left: none; }
+}
+
+/* 画布背景层 */
+#bg-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    z-index: -1;
 }

@@ -2,86 +2,87 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>nintreesssss</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <canvas id="bg-canvas"></canvas>
 
     <header class="cargo-sidebar">
         <div class="logo">EESSSSS</div>
-        
         <nav class="navigation">
             <a href="#profile" class="nav-link active">Profile</a>
             <a href="#projects" class="nav-link">Project</a>
             <a href="#info" class="nav-link">Information</a>
         </nav>
-
-        <div class="bio-footer">
+        <div class="bio-footer bodycopy">
             <p>Macau University of Science and Technology <span class="highlight">@MUST</span></p>
             <p>My major is Computer Science, a sophomore student.</p>
             <p>Now working on Computer Graphics & Computer Vision.</p>
             <p>Using Languages: Chinese, English, Japanese.</p>
-            <p class="email">ntreesssss@gmail.com</p>
+            <p class="email"><a href="mailto:ntreesssss@gmail.com">ntreesssss@gmail.com</a></p>
         </div>
     </header>
 
     <main class="cargo-main-container">
         <div class="content-wrapper">
             
-            <section id="profile" class="content-section">
+            <section id="profile" class="content-section active">
                 <div class="hero-image">
                     <img src="images/kurt.jpg" alt="Kurt Cobain">
-                    <p class="caption">My idol Kurt Cobain</p>
+                    <span class="caption">My idol Kurt Cobain</span>
                 </div>
-                <div class="info-grid">
+                
+                <div class="info-grid bodycopy">
                     <div class="grid-item">
-                        <h3>EDUCATION</h3>
+                        <hr>
+                        <h2>EDUCATION</h2>
                         <p>2024 - <br>Macau University of Science and Technology</p>
                     </div>
                     <div class="grid-item">
-                        <h3>RESEARCH</h3>
+                        <hr>
+                        <h2>RESEARCH</h2>
                         <p>2026.3 <br>Joined Associate Professor Lin Cheng's lab</p>
                     </div>
                     <div class="grid-item">
-                        <h3>EMPLOYMENT</h3>
+                        <hr>
+                        <h2>EMPLOYMENT</h2>
                         <p>(upcoming)</p>
                     </div>
                 </div>
             </section>
 
-            <section id="projects" class="content-section" style="display:none;">
-                <div class="project-list">
+            <section id="projects" class="content-section">
+                <div class="project-list bodycopy">
                     <div class="project-entry">
                         <span class="title">3DGS-Unity-Task Integration of Virtual and Real</span>
                         <span class="date">2026.3</span>
                     </div>
+                    <hr>
                     <div class="project-entry">
                         <span class="title">GAMES-101 Assignment7</span>
                         <span class="date">2026.3</span>
                     </div>
-                    </div>
+                    <hr>
+                </div>
             </section>
 
         </div>
     </main>
 
     <script>
+        // 简单的 SPA 切换逻辑
         const links = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('.content-section');
-
         links.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute('href').substring(1);
-                
-                // 切换 Active 状态
                 links.forEach(l => l.classList.remove('active'));
                 link.classList.add('active');
-
-                // 切换内容显示
-                sections.forEach(s => s.style.display = 'none');
-                document.getElementById(targetId).style.display = 'block';
+                sections.forEach(s => s.classList.remove('active'));
+                document.getElementById(targetId).classList.add('active');
             });
         });
     </script>
