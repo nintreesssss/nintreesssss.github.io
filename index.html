@@ -1,90 +1,267 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>nintreesssss</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nintreesssss - Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="bg-canvas"></canvas>
-
-    <header class="cargo-sidebar">
-        <div class="logo">EESSSSS</div>
-        <nav class="navigation">
-            <a href="#profile" class="nav-link active">Profile</a>
-            <a href="#projects" class="nav-link">Project</a>
-            <a href="#info" class="nav-link">Information</a>
-        </nav>
-        <div class="bio-footer bodycopy">
-            <p>Macau University of Science and Technology <span class="highlight">@MUST</span></p>
-            <p>My major is Computer Science, a sophomore student.</p>
-            <p>Now working on Computer Graphics & Computer Vision.</p>
-            <p>Using Languages: Chinese, English, Japanese.</p>
-            <p class="email"><a href="mailto:ntreesssss@gmail.com">ntreesssss@gmail.com</a></p>
+  <main class="main-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <!-- Top Section: Title/Nav/Contact on left, Bio on right -->
+      <div class="sidebar-top">
+        <!-- Left Column: Title, Navigation, Contact -->
+        <div class="sidebar-left">
+          <!-- Site Title -->
+          <h1 class="site-title" onclick="goHome()">NINTREESSSSS</h1>
+          
+          <!-- Navigation -->
+          <nav class="nav">
+            <a href="#" onclick="showSection('projects'); return false;" class="nav-link" id="nav-projects">Projects</a>
+            <a href="#" onclick="showSection('information'); return false;" class="nav-link" id="nav-information">Information</a>
+          </nav>
+          
+          <!-- Contact Links -->
+          <div class="contact-links">
+            <a href="mailto:nintreesssss@gmail.com" class="contact-link"><em>Email:nintreesssss@gmail.com</em></a>
+            <a href="https://www.instagram.com/ninetreesss/" target="_blank" class="contact-link">Instagram</a>
+            <a href="https://github.com/nintreesssss" target="_blank" class="contact-link">Github</a>
+          </div>
         </div>
-    </header>
 
-    <main class="cargo-main-container">
-        <div class="content-wrapper">
-            
-            <section id="profile" class="content-section active">
-                <div class="hero-image">
-                    <img src="images/kurt.jpg" alt="Kurt Cobain">
-                    <span class="caption">My idol Kurt Cobain</span>
-                </div>
-                
-                <div class="info-grid bodycopy">
-                    <div class="grid-item">
-                        <hr>
-                        <h2>EDUCATION</h2>
-                        <p>2024 - <br>Macau University of Science and Technology</p>
-                    </div>
-                    <div class="grid-item">
-                        <hr>
-                        <h2>RESEARCH</h2>
-                        <p>2026.3 <br>Joined Associate Professor Lin Cheng's lab</p>
-                    </div>
-                    <div class="grid-item">
-                        <hr>
-                        <h2>EMPLOYMENT</h2>
-                        <p>(upcoming)</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="projects" class="content-section">
-                <div class="project-list bodycopy">
-                    <div class="project-entry">
-                        <span class="title">3DGS-Unity-Task Integration of Virtual and Real</span>
-                        <span class="date">2026.3</span>
-                    </div>
-                    <hr>
-                    <div class="project-entry">
-                        <span class="title">GAMES-101 Assignment7</span>
-                        <span class="date">2026.3</span>
-                    </div>
-                    <hr>
-                </div>
-            </section>
-
+        <!-- Right Column: Bio Section -->
+        <div class="bio-section">
+          <p class="bio-text">
+            <em>Macau University of Science and Technology</em>
+            <a href="https://www.must.edu.mo/" target="_blank" class="must-link">@MUST</a>
+          </p>
+          <p class="bio-text">
+            My major is Computer Science, a sophomore student.<br>
+            Now working on Computer Graphics & Computer Vision.
+          </p>
+          <p class="bio-text">
+            Using Languages: Chinese, English, Japanese.
+          </p>
         </div>
-    </main>
+      </div>
+      
+      <!-- Tree Illustration Placeholder -->
+      <div class="tree-container">
+        <div class="image-placeholder tree-placeholder">
+          <span>Tree Illustration</span>
+        </div>
+      </div>
+    </aside>
 
-    <script>
-        // 简单的 SPA 切换逻辑
-        const links = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('.content-section');
-        links.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                links.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-                sections.forEach(s => s.classList.remove('active'));
-                document.getElementById(targetId).classList.add('active');
-            });
-        });
-    </script>
+    <!-- Right Content Area -->
+    <div class="content-area" id="content-area">
+      
+      <!-- Information Section -->
+      <section class="section-panel" id="information-section">
+        <!-- Profile Image -->
+        <div class="profile-image-container">
+          <div class="image-placeholder profile-placeholder">
+            <span>Profile Image</span>
+          </div>
+        </div>
+        
+        <!-- Caption -->
+        <p class="profile-caption">
+          My <span class="red-text">idol</span> Kurt Cobain
+        </p>
+        
+        <!-- Timeline Sections -->
+        <div class="timeline-grid">
+          <!-- Education -->
+          <div class="timeline-item">
+            <hr class="timeline-divider">
+            <h2 class="timeline-title">EDUCATION</h2>
+            <div class="timeline-content">
+              <p class="timeline-date">2024 -</p>
+              <p>Macau University of Science and Technology</p>
+            </div>
+          </div>
+          
+          <!-- Research -->
+          <div class="timeline-item">
+            <hr class="timeline-divider">
+            <h2 class="timeline-title">RESEARCH</h2>
+            <div class="timeline-content">
+              <p class="timeline-date">2026.3</p>
+              <p>Joined Associate Professor Lin Cheng's lab in our college</p>
+            </div>
+          </div>
+          
+          <!-- Employment -->
+          <div class="timeline-item">
+            <hr class="timeline-divider">
+            <h2 class="timeline-title">EMPLOYMENT</h2>
+            <div class="timeline-content">
+              <p>(upcoming)</p>
+            </div>
+          </div>
+          
+          <!-- Empty placeholder -->
+          <div class="timeline-item">
+            <hr class="timeline-divider">
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="section-panel" id="projects-section" style="display: none;">
+        
+        <!-- Project 1: 3DGS-Unity-Task -->
+        <div class="project-card">
+          <hr class="project-divider">
+          <div class="project-grid">
+            <div class="project-info">
+              <h3 class="project-title">
+                <a href="https://github.com/nintreesssss/3DGS-Unity-Task" target="_blank">3DGS-Unity-Task</a>
+              </h3>
+              <p class="project-description">Integration of Virtual and Real</p>
+              <p class="project-tech">3DGS,<br>Unity</p>
+            </div>
+            <div class="project-media">
+              <p class="project-date">2026.3</p>
+              <div class="project-images">
+                <div class="image-placeholder project-image" style="width: 100%; aspect-ratio: 16/9;">
+                  <span>3DGS Demo 1</span>
+                </div>
+                <div class="image-placeholder project-image" style="width: 100%; aspect-ratio: 16/9;">
+                  <span>3DGS Demo 2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: GAMES-101 Assignment7 -->
+        <div class="project-card">
+          <hr class="project-divider">
+          <div class="project-grid">
+            <div class="project-info">
+              <h3 class="project-title">GAMES-101 Assignment7</h3>
+              <p class="project-tech">Path Tracing</p>
+            </div>
+            <div class="project-media">
+              <p class="project-date">2026.3</p>
+              <div class="project-images">
+                <div class="image-placeholder project-image" style="width: 80%; aspect-ratio: 1/1; border-color: #00d4ff;">
+                  <span>Path Tracing - Cornell Box</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: GAMES-101 Assignment6 -->
+        <div class="project-card">
+          <hr class="project-divider">
+          <div class="project-grid">
+            <div class="project-info">
+              <h3 class="project-title">GAMES-101 Assignment6</h3>
+              <p class="project-tech">Whitted-StyleRayTracing,<br>Bounding Volume Hierarchy (BVH)</p>
+            </div>
+            <div class="project-media">
+              <p class="project-date">2026.3</p>
+              <div class="project-images">
+                <div class="image-placeholder project-image" style="width: 80%; aspect-ratio: 16/9; border-color: #00d4ff;">
+                  <span>Ray Tracing - Bunny</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: GAMES-101 Assignment5 -->
+        <div class="project-card">
+          <hr class="project-divider">
+          <div class="project-grid">
+            <div class="project-info">
+              <h3 class="project-title">GAMES-101 Assignment5</h3>
+              <p class="project-tech">Moller-Trumbore Algorithm</p>
+            </div>
+            <div class="project-media">
+              <p class="project-date">2026.3</p>
+              <div class="project-images">
+                <div class="image-placeholder project-image" style="width: 80%; aspect-ratio: 16/9; border-color: #00d4ff;">
+                  <span>Moller-Trumbore Demo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: GAMES-101 Assignment3 -->
+        <div class="project-card">
+          <hr class="project-divider">
+          <div class="project-grid">
+            <div class="project-info">
+              <h3 class="project-title">GAMES-101 Assignment3</h3>
+              <p class="project-tech">Blinn-Phong Model</p>
+            </div>
+            <div class="project-media">
+              <p class="project-date">2026.3</p>
+              <div class="project-images project-images-row">
+                <div class="image-placeholder project-image" style="width: 30%; aspect-ratio: 1/1;">
+                  <span>Cow Model 1</span>
+                </div>
+                <div class="image-placeholder project-image" style="width: 30%; aspect-ratio: 1/1;">
+                  <span>Cow Model 2</span>
+                </div>
+                <div class="image-placeholder project-image" style="width: 30%; aspect-ratio: 1/1;">
+                  <span>Cow Model 3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back to Top -->
+        <hr class="project-divider" style="margin-top: 1rem;">
+        <button class="top-button" onclick="scrollToTop()">Top</button>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    let currentSection = null;
+
+    function goHome() {
+      currentSection = null;
+      document.getElementById('content-area').style.display = 'none';
+      document.getElementById('sidebar').classList.add('full-width');
+      document.getElementById('nav-projects').classList.remove('active');
+      document.getElementById('nav-information').classList.remove('active');
+    }
+
+    function showSection(section) {
+      currentSection = section;
+      document.getElementById('content-area').style.display = 'block';
+      document.getElementById('sidebar').classList.remove('full-width');
+      
+      // Hide all sections
+      document.getElementById('information-section').style.display = 'none';
+      document.getElementById('projects-section').style.display = 'none';
+      
+      // Show selected section
+      document.getElementById(section + '-section').style.display = 'block';
+      
+      // Update nav active state
+      document.getElementById('nav-projects').classList.remove('active');
+      document.getElementById('nav-information').classList.remove('active');
+      document.getElementById('nav-' + section).classList.add('active');
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Initialize: show home state
+    goHome();
+  </script>
 </body>
 </html>
