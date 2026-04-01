@@ -1,160 +1,89 @@
 <!DOCTYPE html>
-<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/htmx.org@2.0.3"></script>
-    <title>JiuShu 的个人主页</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-    .social-link {
-        transition: color 0.2s ease;
-    }
-    .social-link:hover { color: var(--bs-primary) !important; }
-    .social-link.text-info:hover { color: var(--bs-info) !important; }
-    .social-link.text-success:hover { color: var(--bs-success) !important; }
-    .sidebar-container {
-            min-height: 100vh;
-            background-color: white;
-            border-right: 1px solid #e0e0e0;
-        }
-        
-        .card-no-bottom-radius {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-        
-        .list-group-item-action {
-            border: none;
-        }
-    </style>
+    <title>nintreesssss</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light min-vh-100 d-flex align-items-center">  <!--背景浅灰，全屏高度，内容垂直居中-->
-    
-    <div class="container-fluid h-100">
-        <div class="row h-100 g-0">
+<body>
 
-            <!--左侧栏-->
-            <div class="col-lg-4 col-xl-2 sidebar-container p-0 position-sticky"
-            style="top: 0; height: 100vh; overflow-y: auto;">
+    <header class="cargo-sidebar">
+        <div class="logo">EESSSSS</div>
+        
+        <nav class="navigation">
+            <a href="#profile" class="nav-link active">Profile</a>
+            <a href="#projects" class="nav-link">Project</a>
+            <a href="#info" class="nav-link">Information</a>
+        </nav>
 
-                <!--主卡片-->
-                <div class="card border-0 rounded-4 p-5 bg-white"
-                style="max-width: 400px; margin: 0 auto;">  <!--卡片效果-->
-                    <!--头像-->
-                    <img th:src="@{/images/avatar.jpg}" alt="JiuShu" 
-                         class="rounded-circle mx-auto d-block mb-4" 
-                         style="width: 180px; height: 180px; object-fit: cover; border: 5px solid #14acc0;">
+        <div class="bio-footer">
+            <p>Macau University of Science and Technology <span class="highlight">@MUST</span></p>
+            <p>My major is Computer Science, a sophomore student.</p>
+            <p>Now working on Computer Graphics & Computer Vision.</p>
+            <p>Using Languages: Chinese, English, Japanese.</p>
+            <p class="email">ntreesssss@gmail.com</p>
+        </div>
+    </header>
 
-                    <h1 class="text-center fw-bold mb-3" th:text="${name}">姓名</h1>
-
-                    <!--简介-->
-                    <p class="text-center lead text-muted mb-5" th:text="${bio}">
-                        自我介绍文字
-                    </p>
-
-                    <!-- 社媒链接 -->
-                    <div class="d-flex justify-content-center gap-5 fs-3">
-                        <a th:href="${github}" target="_blank" class="text-dark social-link">
-                            <i class="bi bi-github"></i> GitHub
-                        </a>
-                        <a th:href="${x}" target="_blank" class="text-dark social-link">
-                            <i class="bi bi-twitter-x"></i> X
-                        </a>
-                        <a th:href="'mailto:' + ${email}" class="text-dark social-link">
-                            <i class="bi bi-envelope"></i> Email
-                        </a>
+    <main class="cargo-main-container">
+        <div class="content-wrapper">
+            
+            <section id="profile" class="content-section">
+                <div class="hero-image">
+                    <img src="images/kurt.jpg" alt="Kurt Cobain">
+                    <p class="caption">My idol Kurt Cobain</p>
+                </div>
+                <div class="info-grid">
+                    <div class="grid-item">
+                        <h3>EDUCATION</h3>
+                        <p>2024 - <br>Macau University of Science and Technology</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>RESEARCH</h3>
+                        <p>2026.3 <br>Joined Associate Professor Lin Cheng's lab</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>EMPLOYMENT</h3>
+                        <p>(upcoming)</p>
                     </div>
                 </div>
+            </section>
 
-            <!--目录-->
-                <div class="bg-white px-5 pb-5 pt-3">
-                    <div class="list-group list-group-flush rounded-0">
-                        <a href="/" 
-                        hx-get="/" 
-                        hx-target="#main-content" 
-                        hx-push-url="true" 
-                        hx-swap="innerHTML"
-                        class="list-group-item list-group-item-action px-4 py-3 d-flex align-items-center active">  <!-- 默认 active，因为主页 -->
-                        <i class="bi bi-house me-3 fs-5"></i>
-                        <span>主页</span>
-                        </a>
-                        <a  href="/about" 
-                            hx-get="/about" 
-                            hx-target="#main-content" 
-                            hx-push-url="true" 
-                            hx-swap="innerHTML"
-                            class="list-group-item list-group-item-action px-4 py-3 d-flex align-items-center">
-                            <i class="bi bi-1-square me-3 fs-5"></i>
-                            <span>测试文本1</span>
-                        </a>
-                        <a href="/skills" 
-                            hx-get="/skills" 
-                            hx-target="#main-content" 
-                            hx-push-url="true" 
-                            hx-swap="innerHTML" 
-                            class="list-group-item list-group-item-action px-4 py-3 d-flex align-items-center">
-                            <i class="bi bi-2-square me-3 fs-5"></i>
-                            <span>测试文本2</span>
-                        </a>
-                        <a href="/projects" 
-                            hx-get="/projects" 
-                            hx-target="#main-content" 
-                            hx-push-url="true" 
-                            hx-swap="innerHTML"
-                            class="list-group-item list-group-item-action px-4 py-3 d-flex align-items-center">
-                            <i class="bi bi-3-square me-3 fs-5"></i>
-                            <span>测试文本3</span>
-                        </a>
-                        <a href="/experience" 
-                            hx-get="/experience" 
-                            hx-target="#main-content" 
-                            hx-push-url="true" 
-                            hx-swap="innerHTML"
-                            class="list-group-item list-group-item-action px-4 py-3 d-flex align-items-center">
-                            <i class="bi bi-4-square me-3 fs-5"></i>
-                            <span>测试文本4</span>
-                        </a>
-                        <a href="/education" 
-                            hx-get="/education" 
-                            hx-target="#main-content" 
-                            hx-push-url="true" 
-                            hx-swap="innerHTML"
-                            class="list-group-item list-group-item-action px-4 py-3 d-flex align-items-center">
-                            <i class="bi bi-5-square me-3 fs-5"></i>
-                            <span>测试文本5</span>
-                        </a>
-                        <a href="/contact" 
-                            hx-get="/contact" 
-                            hx-target="#main-content" 
-                            hx-push-url="true" 
-                            hx-swap="innerHTML"
-                            class="list-group-item list-group-item-action px-4 py-3 d-flex align-items-center">
-                            <i class="bi bi-6-square me-3 fs-5"></i>
-                            <span>测试文本6</span>
-                        </a>
+            <section id="projects" class="content-section" style="display:none;">
+                <div class="project-list">
+                    <div class="project-entry">
+                        <span class="title">3DGS-Unity-Task Integration of Virtual and Real</span>
+                        <span class="date">2026.3</span>
                     </div>
-                </div>
-
-            </div><!--左侧栏-->
-
-
-            <!-- 右侧主内容区-->
-            <div class="col-lg-8 col-xl-9 bg-light p-5">
-                <div id="main-content">
-        <!-- 首次加载直接渲染 home 片段 -->
-                    <div th:replace="~{fragments/home :: content}"></div>
-                </div>
-            </div>
-
+                    <div class="project-entry">
+                        <span class="title">GAMES-101 Assignment7</span>
+                        <span class="date">2026.3</span>
+                    </div>
+                    </div>
+            </section>
 
         </div>
-    </div>
+    </main>
 
- 
+    <script>
+        const links = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.content-section');
 
-    <!-- 引入Bootstrap图标-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                
+                // 切换 Active 状态
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+
+                // 切换内容显示
+                sections.forEach(s => s.style.display = 'none');
+                document.getElementById(targetId).style.display = 'block';
+            });
+        });
+    </script>
 </body>
-
 </html>
