@@ -1,0 +1,86 @@
+ # Projects data template
+ #
+ # Copy one item block below to add a new project.
+ # Required fields:
+ # - title: project name
+ # - date: display date
+ # - images: one or more image objects
+ # Optional fields:
+ # - link: clickable title URL
+ # - description: short summary shown under the title
+ # - techLines: list of tech-stack lines, rendered with <br>
+ # - imagesClass: extra class for the whole image row, e.g. "project-images-row"
+ # - image fields:
+ #   - src: image path
+ #   - alt: image alt text
+ #   - class: image size preset class, or leave empty
+ #   - width: optional precise width, e.g. "110%" or "560px"
+ #   - maxWidth: optional max-width, e.g. "none" or "640px"
+
+items:
+  - title: "3DGS-Unity-Task"
+    link: "https://github.com/nintreesssss/3DGS-Unity-Task"
+    description: "Integration of Virtual and Real"
+    techLines:
+      - "3DGS,"
+      - "Unity"
+    date: "2026.3"
+    imagesClass: ""
+    images:
+      - src: "/images/projects/3dgs1.png"
+        alt: "3DGS Demo 1"
+        class: "project-image-large"
+        width: "110%"
+        maxWidth: "none"
+      - src: "/images/projects/3dgs2.png"
+        alt: "3DGS Demo 2"
+        class: "project-image-large"
+        width: "110%"
+        maxWidth: "none"
+
+  - title: "GAMES-101 Assignment7"
+    techLines:
+      - "Path Tracing"
+    date: "2026.3"
+    imagesClass: ""
+    images:
+      - src: "/images/projects/7.png"
+        alt: "Path Tracing"
+        class: "project-image-large"
+
+  - title: "GAMES-101 Assignment6"
+    techLines:
+      - "Whitted-StyleRayTracing,"
+      - "Bounding Volume Hierarchy (BVH)"
+    date: "2026.3"
+    imagesClass: ""
+    images:
+      - src: "/images/projects/6.png"
+        alt: "Ray Tracing"
+        class: "project-image-large"
+
+  - title: "GAMES-101 Assignment5"
+    techLines:
+      - "Moller-Trumbore Algorithm"
+    date: "2026.3"
+    imagesClass: ""
+    images:
+      - src: "/images/projects/5.png"
+        alt: "Moller-Trumbore"
+        class: "project-image-large"
+
+  - title: "GAMES-101 Assignment3"
+    techLines:
+      - "Blinn-Phong Model"
+    date: "2026.3"
+    imagesClass: "project-images-row"
+    images:
+      - src: "/images/projects/output_normal.png"
+        alt: "Cow Model 1"
+        class: "project-image-small"
+      - src: "/images/projects/output_phong.png"
+        alt: "Cow Model 2"
+        class: "project-image-small"
+      - src: "/images/projects/output_texture.png"
+        alt: "Cow Model 3"
+        class: "project-image-small"

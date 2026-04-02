@@ -66,141 +66,65 @@
         </div>
         
         <!-- Caption -->
+        {{ with hugo.Data.information.profileCaption }}
         <p class="profile-caption">
-          My <span class="red-text">idol</span> Kurt Cobain
+          {{ .prefix }} <span class="red-text">{{ .highlight }}</span> {{ .suffix }}
         </p>
+        {{ end }}
         
         <!-- Timeline Sections -->
         <div class="timeline-grid">
-          <!-- Education -->
+          {{ range hugo.Data.information.timeline }}
           <div class="timeline-item">
             <hr class="timeline-divider">
-            <h2 class="timeline-title">EDUCATION</h2>
+            {{ if not .dividerOnly }}
+            <h2 class="timeline-title">{{ .title }}</h2>
             <div class="timeline-content">
-              <p class="timeline-date">2024 -</p>
-              <p>Macau University of Science and Technology</p>
+              {{ with .date }}<p class="timeline-date">{{ . }}</p>{{ end }}
+              {{ range .lines }}
+              <p>{{ . }}</p>
+              {{ end }}
             </div>
+            {{ end }}
           </div>
-          
-          <!-- Research -->
-          <div class="timeline-item">
-            <hr class="timeline-divider">
-            <h2 class="timeline-title">RESEARCH</h2>
-            <div class="timeline-content">
-              <p class="timeline-date">2026.3</p>
-              <p>Joined Associate Professor Lin Cheng's lab in our college</p>
-            </div>
-          </div>
-          
-          <!-- Employment -->
-          <div class="timeline-item">
-            <hr class="timeline-divider">
-            <h2 class="timeline-title">EMPLOYMENT</h2>
-            <div class="timeline-content">
-              <p>(upcoming)</p>
-            </div>
-          </div>
-          
-          <!-- Empty placeholder -->
-          <div class="timeline-item">
-            <hr class="timeline-divider">
-          </div>
+          {{ end }}
         </div>
         </section>
 
         <!-- Projects Section -->
         <section class="section-panel" id="projects-section" style="display: none;">
         
-        <!-- Project 1: 3DGS-Unity-Task -->
+        {{ range hugo.Data.projects.items }}
         <div class="project-card">
           <hr class="project-divider">
           <div class="project-grid">
             <div class="project-info">
               <h3 class="project-title">
-                <a href="https://github.com/nintreesssss/3DGS-Unity-Task" target="_blank">3DGS-Unity-Task</a>
+                {{ if .link }}
+                <a href="{{ .link }}" target="_blank">{{ .title }}</a>
+                {{ else }}
+                {{ .title }}
+                {{ end }}
               </h3>
-              <p class="project-description">Integration of Virtual and Real</p>
-              <p class="project-tech">3DGS,<br>Unity</p>
+              {{ with .description }}
+              <p class="project-description">{{ . }}</p>
+              {{ end }}
+              {{ with .techLines }}
+              <p class="project-tech">{{ range $index, $line := . }}{{ if gt $index 0 }}<br>{{ end }}{{ $line }}{{ end }}</p>
+              {{ end }}
             </div>
             <div class="project-media">
-              <p class="project-date">2026.3</p>
-              <div class="project-images">
-                <img src="/images/projects/3dgs1.png" alt="3DGS Demo 1" class="project-image">
-                <img src="/images/projects/3dgs2.png" alt="3DGS Demo 2" class="project-image">
+              <p class="project-date">{{ .date }}</p>
+              <div class="project-images{{ with .imagesClass }} {{ . }}{{ end }}">
+                {{ range .images }}
+                {{ $image := . }}
+                <img src="{{ $image.src }}" alt="{{ $image.alt }}" class="project-image{{ with $image.class }} {{ . }}{{ end }}"{{ if or $image.width $image.maxWidth }} style="{{ with $image.width }}width: {{ . }}; height: auto;{{ end }}{{ with $image.maxWidth }} max-width: {{ . }};{{ else }} max-width: none;{{ end }}"{{ end }}>
+                {{ end }}
               </div>
             </div>
           </div>
         </div>
-        
-        <!-- Project 2: GAMES-101 Assignment7 -->
-        <div class="project-card">
-          <hr class="project-divider">
-          <div class="project-grid">
-            <div class="project-info">
-              <h3 class="project-title">GAMES-101 Assignment7</h3>
-              <p class="project-tech">Path Tracing</p>
-            </div>
-            <div class="project-media">
-              <p class="project-date">2026.3</p>
-              <div class="project-images">
-                <img src="/images/projects/7.png" alt="Path Tracing" class="project-image project-image-large">
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Project 3: GAMES-101 Assignment6 -->
-        <div class="project-card">
-          <hr class="project-divider">
-          <div class="project-grid">
-            <div class="project-info">
-              <h3 class="project-title">GAMES-101 Assignment6</h3>
-              <p class="project-tech">Whitted-StyleRayTracing,<br>Bounding Volume Hierarchy (BVH)</p>
-            </div>
-            <div class="project-media">
-              <p class="project-date">2026.3</p>
-              <div class="project-images">
-                <img src="/images/projects/6.png" alt="Ray Tracing" class="project-image project-image-large">
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Project 4: GAMES-101 Assignment5 -->
-        <div class="project-card">
-          <hr class="project-divider">
-          <div class="project-grid">
-            <div class="project-info">
-              <h3 class="project-title">GAMES-101 Assignment5</h3>
-              <p class="project-tech">Moller-Trumbore Algorithm</p>
-            </div>
-            <div class="project-media">
-              <p class="project-date">2026.3</p>
-              <div class="project-images">
-                <img src="/images/projects/5.png" alt="Moller-Trumbore" class="project-image project-image-large">
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Project 5: GAMES-101 Assignment3 -->
-        <div class="project-card">
-          <hr class="project-divider">
-          <div class="project-grid">
-            <div class="project-info">
-              <h3 class="project-title">GAMES-101 Assignment3</h3>
-              <p class="project-tech">Blinn-Phong Model</p>
-            </div>
-            <div class="project-media">
-              <p class="project-date">2026.3</p>
-              <div class="project-images project-images-row">
-                <img src="/images/projects/output_normal.png" alt="Cow Model 1" class="project-image project-image-small">
-                <img src="/images/projects/output_phong.png" alt="Cow Model 2" class="project-image project-image-small">
-                <img src="/images/projects/output_texture.png" alt="Cow Model 3" class="project-image project-image-small">
-              </div>
-            </div>
-          </div>
-        </div>
+        {{ end }}
         
         <!-- Back to Top -->
         <hr class="project-divider" style="margin-top: 1rem;">

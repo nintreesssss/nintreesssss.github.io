@@ -495,16 +495,17 @@ body.home .main-layout {
   object-fit: cover;
   width: 100%;
   max-width: 400px;
+  height: auto;
 }
 
 .project-image-large {
   width: 80%;
-  aspect-ratio: 1/1;
+  height: auto;
 }
 
 .project-image-small {
   width: 30%;
-  aspect-ratio: 1/1;
+  height: auto;
 }
 
 /* Top Button */
@@ -583,5 +584,6 @@ body.home .main-layout {
   
   .project-image-small {
     width: 45%;
+    height: auto;
   }
 }

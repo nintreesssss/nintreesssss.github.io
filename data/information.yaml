@@ -1,0 +1,40 @@
+ # Information data template
+ #
+ # profileCaption controls the sentence under the profile image.
+ # timeline is rendered in order. Each item can be:
+ # - a standard block with title/date/lines
+ # - dividerOnly: true for a divider-only spacer item
+ #
+ # Standard item fields:
+ # - title: section heading
+ # - date: optional date line
+ # - lines: list of text lines rendered as <p>
+ #
+ # Example structure to copy:
+ # - title: "SKILL"
+ #   date: "2026"
+ #   lines:
+ #     - "Example line 1"
+ #     - "Example line 2"
+
+profileCaption:
+  prefix: "My"
+  highlight: "idol"
+  suffix: "Kurt Cobain"
+
+timeline:
+  - title: "EDUCATION"
+    date: "2024 -"
+    lines:
+      - "Macau University of Science and Technology"
+
+  - title: "RESEARCH"
+    date: "2026.3"
+    lines:
+      - "Joined Associate Professor Lin Cheng's lab in our college"
+
+  - title: "EMPLOYMENT"
+    lines:
+      - "(upcoming)"
+
+  - dividerOnly: true
