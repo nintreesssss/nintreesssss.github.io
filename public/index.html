@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.159.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nintreesssss - Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="main-layout">
+    
+    <aside class="sidebar" id="sidebar">
+      
+      <div class="sidebar-top">
+        
+        <div class="sidebar-left">
+          
+          <h1 class="site-title" onclick="goHome()">NINTREESSSSS</h1>
+          
+          
+          <nav class="nav">
+            <a href="#" onclick="showSection('projects'); return false;" class="nav-link" id="nav-projects">Projects</a>
+            <a href="#" onclick="showSection('information'); return false;" class="nav-link" id="nav-information">Information</a>
+          </nav>
+          
+          
+          <div class="contact-links">
+            <a href="mailto:nintreesssss@gmail.com" class="contact-link"><em>Email:nintreesssss@gmail.com</em></a>
+            <a href="https://www.instagram.com/ninetreesss/" target="_blank" class="contact-link">Instagram</a>
+            <a href="https://github.com/nintreesssss" target="_blank" class="contact-link">Github</a>
+          </div>
+        </div>
+
+        
+        <div class="bio-section">
+          <p class="bio-text">
+            <em>Macau University of Science and Technology</em>
+            <a href="https://www.must.edu.mo/" target="_blank" class="must-link">@MUST</a>
+          </p>
+          <p class="bio-text">
+            My major is Computer Science, a sophomore student.<br>
+            Now working on Computer Graphics & Computer Vision.
+          </p>
+          <p class="bio-text">
+            Using Languages: Chinese, English, Japanese.
+          </p>
+        </div>
+      </div>
+      
+      
+      <div class="tree-container">
+        
+        <img src="images/tree-placeholder.png" alt="Tree Illustration" class="tree-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="image-placeholder tree-placeholder" style="display: none;">
+          <span>Tree Illustration<br>请将图片放入 images/ 文件夹</span>
+        </div>
+      </div>
+    </aside>
+
+    
+    <div class="content-area" id="content-area">
+      
+      
+      <section class="section-panel" id="information-section">
+        
+        <div class="profile-image-container">
+          
+          <img src="images/cb.jpg" alt="Profile" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="image-placeholder profile-placeholder" style="display: none;">
+            <span>Profile Image<br>请将图片放入 images/ 文件夹</span>
+          </div>
+        </div>
+        
+        
+        <p class="profile-caption">
+          My <span class="red-text">idol</span> Kurt Cobain
+        </p>
+        
+        
+        <div class="timeline-grid">
+          
+          <div class="timeline-item">
+            <hr class="timeline-divider">
+            <h2 class="timeline-title">EDUCATION</h2>
+            <div class="timeline-content">
+              <p class="timeline-date">2024 -</p>
+              <p>Macau University of Science and Technology</p>
+            </div>
+          </div>
+          
+          
+          <div class="timeline-item">
+            <hr class="timeline-divider">
+            <h2 class="timeline-title">RESEARCH</h2>
+            <div class="timeline-content">
+              <p class="timeline-date">2026.3</p>
+              <p>Joined Associate Professor Lin Cheng's lab in our college</p>
+            </div>
+          </div>
+          
+          
+          <div class="timeline-item">
+            <hr class="timeline-divider">
+            <h2 class="timeline-title">EMPLOYMENT</h2>
+            <div class="timeline-content">
+              <p>(upcoming)</p>
+            </div>
+          </div>
+          
+          
+          <div class="timeline-item">
+            <hr class="timeline-divider">
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="section-panel" id="projects-section" style="display: none;">
+        
+        
+        <div class="project-card">
+          <hr class="project-divider">
+          <div class="project-grid">
+            <div class="project-info">
+              <h3 class="project-title">
+                <a href="https://github.com/nintreesssss/3DGS-Unity-Task" target="_blank">3DGS-Unity-Task</a>
+              </h3>
+              <p class="project-description">Integration of Virtual and Real</p>
+              <p class="project-tech">3DGS,<br>Unity</p>
+            </div>
+            <div class="project-media">
+              <p class="project-date">2026.3</p>
+              <div class="project-images">
+                
+                <img src="images/projects/3dgs1.png" alt="3DGS Demo 1" class="project-image" onerror="this.outerHTML='<div class=\'image-placeholder project-image\' style=\'width:100%;aspect-ratio:16/9\'><span>3DGS Demo 1</span></div>'">
+                <img src="images/projects/3dgs2.png" alt="3DGS Demo 2" class="project-image" onerror="this.outerHTML='<div class=\'image-placeholder project-image\' style=\'width:100%;aspect-ratio:16/9\'><span>3DGS Demo 2</span></div>'">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="project-card">
+          <hr class="project-divider">
+          <div class="project-grid">
+            <div class="project-info">
+              <h3 class="project-title">GAMES-101 Assignment7</h3>
+              <p class="project-tech">Path Tracing</p>
+            </div>
+            <div class="project-media">
+              <p class="project-date">2026.3</p>
+              <div class="project-images">
+                <img src="images/projects/7.png" alt="Path Tracing" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Path Tracing - Cornell Box</span></div>'">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="project-card">
+          <hr class="project-divider">
+          <div class="project-grid">
+            <div class="project-info">
+              <h3 class="project-title">GAMES-101 Assignment6</h3>
+              <p class="project-tech">Whitted-StyleRayTracing,<br>Bounding Volume Hierarchy (BVH)</p>
+            </div>
+            <div class="project-media">
+              <p class="project-date">2026.3</p>
+              <div class="project-images">
+                <img src="images/projects/6.png" alt="Ray Tracing" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Ray Tracing - Bunny</span></div>'">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="project-card">
+          <hr class="project-divider">
+          <div class="project-grid">
+            <div class="project-info">
+              <h3 class="project-title">GAMES-101 Assignment5</h3>
+              <p class="project-tech">Moller-Trumbore Algorithm</p>
+            </div>
+            <div class="project-media">
+              <p class="project-date">2026.3</p>
+              <div class="project-images">
+                <img src="images/projects/5.png" alt="Moller-Trumbore" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Moller-Trumbore Demo</span></div>'">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="project-card">
+          <hr class="project-divider">
+          <div class="project-grid">
+            <div class="project-info">
+              <h3 class="project-title">GAMES-101 Assignment3</h3>
+              <p class="project-tech">Blinn-Phong Model</p>
+            </div>
+            <div class="project-media">
+              <p class="project-date">2026.3</p>
+              <div class="project-images project-images-row">
+                <img src="images/projects/output_normal.png" alt="Cow Model 1" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 1</span></div>'">
+                <img src="images/projects/output_phong.png" alt="Cow Model 2" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 2</span></div>'">
+                <img src="images/projects/output_texture.png" alt="Cow Model 3" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 3</span></div>'">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <hr class="project-divider" style="margin-top: 1rem;">
+        <button class="top-button" onclick="scrollToTop()">Top</button>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
