@@ -7,6 +7,8 @@ function goHome() {
   console.debug('[main.js] goHome()');
   document.getElementById('content-area').style.display = 'none';
   document.getElementById('sidebar').classList.add('full-width');
+  document.body.classList.remove('content-open');
+  document.body.classList.add('home');
   document.getElementById('nav-projects').classList.remove('active');
   document.getElementById('nav-information').classList.remove('active');
 }
@@ -15,7 +17,9 @@ function showSection(section) {
   currentSection = section;
   console.debug('[main.js] showSection ->', section);
   document.getElementById('content-area').style.display = 'block';
+  document.body.classList.add('content-open');
   document.getElementById('sidebar').classList.remove('full-width');
+  document.body.classList.remove('home');
   
   // Hide all sections
   document.getElementById('information-section').style.display = 'none';
@@ -31,6 +35,11 @@ function showSection(section) {
 }
 
 function scrollToTop() {
+  var contentArea = document.getElementById('content-area');
+  if (contentArea && contentArea.style.display !== 'none') {
+    contentArea.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 

@@ -17,7 +17,7 @@
           
           <!-- Contact Links -->
           <div class="contact-links">
-            <a href="mailto:{{ .Site.Params.email }}" class="contact-link"><em>Email:{{ .Site.Params.email }}</em></a>
+            <p class="contact-email">Email:<em>{{ .Site.Params.email }}</em></p>
             <a href="{{ .Site.Params.instagram }}" target="_blank" class="contact-link">Instagram</a>
             <a href="{{ .Site.Params.github }}" target="_blank" class="contact-link">Github</a>
           </div>
@@ -51,9 +51,11 @@
 
     <!-- Right Content Area -->
     <div class="content-area" id="content-area">
-      
-      <!-- Information Section -->
-      <section class="section-panel" id="information-section">
+      <div class="page">
+        <div class="page-layout">
+          <div class="page-content">
+            <!-- Information Section -->
+            <section class="section-panel" id="information-section">
         <!-- Profile Image -->
         <div class="profile-image-container">
           <!-- 将这里的 src 替换为你的头像路径，例如 images/profile.jpg -->
@@ -104,10 +106,10 @@
             <hr class="timeline-divider">
           </div>
         </div>
-      </section>
-      
-      <!-- Projects Section -->
-      <section class="section-panel" id="projects-section" style="display: none;">
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section-panel" id="projects-section" style="display: none;">
         
         <!-- Project 1: 3DGS-Unity-Task -->
         <div class="project-card">
@@ -204,6 +206,9 @@
         <hr class="project-divider" style="margin-top: 1rem;">
         <button class="top-button">Top</button>
       </section>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 {{ end }}
