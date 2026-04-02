@@ -1,4 +1,14 @@
 /* Reset and Base Styles */
+@font-face {
+  font-family: "ABCDiatype-Medium";
+  src: local("ABCDiatype-Medium"),
+       url("/fonts/ABCDiatype-Medium.woff2") format("woff2"),
+       url("/fonts/ABCDiatype-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +16,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "ABCDiatype-Medium", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.4;
   background-color: #717171;
   min-height: 100vh;
@@ -30,7 +40,7 @@ bodycopy {
   font-size: 1.15rem;
   font-weight: 500;
   color: var(--swatch-1);
-  font-family: "Diatype Variable", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "ABCDiatype-Medium", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   line-height: 1.2;
   letter-spacing: 0;
@@ -42,7 +52,7 @@ h1 {
   font-size: 3.5rem;
   font-weight: 700;
   color: rgba(0,0,0,0.8);
-  font-family: "Diatype Variable", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "ABCDiatype-Medium", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 0.795;
   margin: 0 0 0.5rem 0;
   font-variation-settings: 'slnt' 0, 'MONO' 0;
@@ -52,7 +62,7 @@ h2 {
   font-style: normal;
   font-weight: 350;
   color: rgba(0,0,0,0.8);
-  font-family: "Marist Variable", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "ABCDiatype-Medium", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 2.4rem;
   line-height: 1.2;
   margin: 0;
@@ -62,7 +72,7 @@ h2 {
   font-size: 0.833rem;
   font-weight: 400;
   color: rgba(0,0,0,0.75);
-  font-family: "Diatype Variable", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "ABCDiatype-Medium", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.2;
   letter-spacing: -0.009em;
   display: block;
