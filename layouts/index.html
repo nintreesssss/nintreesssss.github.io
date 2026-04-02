@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>nintreesssss - Portfolio</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+{{ define "main" }}
   <main class="main-layout">
     <!-- Left Sidebar -->
     <aside class="sidebar" id="sidebar">
@@ -15,34 +7,34 @@
         <!-- Left Column: Title, Navigation, Contact -->
         <div class="sidebar-left">
           <!-- Site Title -->
-          <h1 class="site-title" onclick="goHome()">NINTREESSSSS</h1>
+          <h1 class="site-title" id="site-title">{{ with .Site.Params.siteTitle }}{{ . }}{{ else }}NINTREESSSSS{{ end }}</h1>
           
           <!-- Navigation -->
           <nav class="nav">
-            <a href="#" onclick="showSection('projects'); return false;" class="nav-link" id="nav-projects">Projects</a>
-            <a href="#" onclick="showSection('information'); return false;" class="nav-link" id="nav-information">Information</a>
+            <a href="#" data-section="projects" class="nav-link" id="nav-projects">Projects</a>
+            <a href="#" data-section="information" class="nav-link" id="nav-information">Information</a>
           </nav>
           
           <!-- Contact Links -->
           <div class="contact-links">
-            <a href="mailto:nintreesssss@gmail.com" class="contact-link"><em>Email:nintreesssss@gmail.com</em></a>
-            <a href="https://www.instagram.com/ninetreesss/" target="_blank" class="contact-link">Instagram</a>
-            <a href="https://github.com/nintreesssss" target="_blank" class="contact-link">Github</a>
+            <a href="mailto:{{ .Site.Params.email }}" class="contact-link"><em>Email:{{ .Site.Params.email }}</em></a>
+            <a href="{{ .Site.Params.instagram }}" target="_blank" class="contact-link">Instagram</a>
+            <a href="{{ .Site.Params.github }}" target="_blank" class="contact-link">Github</a>
           </div>
         </div>
 
         <!-- Right Column: Bio Section -->
         <div class="bio-section">
           <p class="bio-text">
-            <em>Macau University of Science and Technology</em>
+            <em>{{ index .Site.Params.bio_lines 0 }}</em>
             <a href="https://www.must.edu.mo/" target="_blank" class="must-link">@MUST</a>
           </p>
           <p class="bio-text">
-            My major is Computer Science, a sophomore student.<br>
-            Now working on Computer Graphics & Computer Vision.
+            {{ index .Site.Params.bio_lines 1 }}<br>
+            {{ index .Site.Params.bio_lines 2 }}
           </p>
           <p class="bio-text">
-            Using Languages: Chinese, English, Japanese.
+            {{ index .Site.Params.bio_lines 3 }}
           </p>
         </div>
       </div>
@@ -50,7 +42,7 @@
       <!-- Tree Illustration Placeholder -->
       <div class="tree-container">
         <!-- 将这里的 src 替换为你的树插图路径，例如 images/tree.png -->
-        <img src="images/tree-placeholder.png" alt="Tree Illustration" class="tree-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <img src="{{ .Site.Params.treeImage }}" alt="Tree Illustration" class="tree-image">
         <div class="image-placeholder tree-placeholder" style="display: none;">
           <span>Tree Illustration<br>请将图片放入 images/ 文件夹</span>
         </div>
@@ -65,7 +57,7 @@
         <!-- Profile Image -->
         <div class="profile-image-container">
           <!-- 将这里的 src 替换为你的头像路径，例如 images/profile.jpg -->
-          <img src="images/cb.jpg" alt="Profile" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="{{ .Site.Params.profileImage }}" alt="Profile" class="profile-image">
           <div class="image-placeholder profile-placeholder" style="display: none;">
             <span>Profile Image<br>请将图片放入 images/ 文件夹</span>
           </div>
@@ -113,7 +105,7 @@
           </div>
         </div>
       </section>
-
+      
       <!-- Projects Section -->
       <section class="section-panel" id="projects-section" style="display: none;">
         
@@ -131,14 +123,13 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                <!-- 替换为你的项目图片 -->
-                <img src="images/projects/3dgs1.png" alt="3DGS Demo 1" class="project-image" onerror="this.outerHTML='<div class=\'image-placeholder project-image\' style=\'width:100%;aspect-ratio:16/9\'><span>3DGS Demo 1</span></div>'">
-                <img src="images/projects/3dgs2.png" alt="3DGS Demo 2" class="project-image" onerror="this.outerHTML='<div class=\'image-placeholder project-image\' style=\'width:100%;aspect-ratio:16/9\'><span>3DGS Demo 2</span></div>'">
+                <img src="/images/projects/3dgs1.png" alt="3DGS Demo 1" class="project-image">
+                <img src="/images/projects/3dgs2.png" alt="3DGS Demo 2" class="project-image">
               </div>
             </div>
           </div>
         </div>
-
+        
         <!-- Project 2: GAMES-101 Assignment7 -->
         <div class="project-card">
           <hr class="project-divider">
@@ -150,12 +141,12 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                <img src="images/projects/7.png" alt="Path Tracing" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Path Tracing - Cornell Box</span></div>'">
+                <img src="/images/projects/7.png" alt="Path Tracing" class="project-image project-image-large">
               </div>
             </div>
           </div>
         </div>
-
+        
         <!-- Project 3: GAMES-101 Assignment6 -->
         <div class="project-card">
           <hr class="project-divider">
@@ -167,12 +158,12 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                <img src="images/projects/6.png" alt="Ray Tracing" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Ray Tracing - Bunny</span></div>'">
+                <img src="/images/projects/6.png" alt="Ray Tracing" class="project-image project-image-large">
               </div>
             </div>
           </div>
         </div>
-
+        
         <!-- Project 4: GAMES-101 Assignment5 -->
         <div class="project-card">
           <hr class="project-divider">
@@ -184,12 +175,12 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                <img src="images/projects/5.png" alt="Moller-Trumbore" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Moller-Trumbore Demo</span></div>'">
+                <img src="/images/projects/5.png" alt="Moller-Trumbore" class="project-image project-image-large">
               </div>
             </div>
           </div>
         </div>
-
+        
         <!-- Project 5: GAMES-101 Assignment3 -->
         <div class="project-card">
           <hr class="project-divider">
@@ -201,21 +192,18 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images project-images-row">
-                <img src="images/projects/output_normal.png" alt="Cow Model 1" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 1</span></div>'">
-                <img src="images/projects/output_phong.png" alt="Cow Model 2" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 2</span></div>'">
-                <img src="images/projects/output_texture.png" alt="Cow Model 3" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 3</span></div>'">
+                <img src="/images/projects/output_normal.png" alt="Cow Model 1" class="project-image project-image-small">
+                <img src="/images/projects/output_phong.png" alt="Cow Model 2" class="project-image project-image-small">
+                <img src="/images/projects/output_texture.png" alt="Cow Model 3" class="project-image project-image-small">
               </div>
             </div>
           </div>
         </div>
-
+        
         <!-- Back to Top -->
         <hr class="project-divider" style="margin-top: 1rem;">
-        <button class="top-button" onclick="scrollToTop()">Top</button>
+        <button class="top-button">Top</button>
       </section>
     </div>
   </main>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+{{ end }}

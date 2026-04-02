@@ -1,3 +1,15 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://nintreesssss.github.io/'
 locale = 'en-us'
 title = 'My New Hugo Project'
+publishDir = 'docs'
+
+[params]
+	siteTitle = "NINTREESSSSS"
+	email = "nintreesssss@gmail.com"
+	instagram = "https://www.instagram.com/ninetreesss/"
+	github = "https://github.com/nintreesssss"
+	bio_lines = ["Macau University of Science and Technology","My major is Computer Science, a sophomore student.","Now working on Computer Graphics & Computer Vision.","Using Languages: Chinese, English, Japanese."]
+	profileImage = "/images/cb.jpg"
+	treeImage = "/images/tree-placeholder.png"
+	animation = true
+	animationDuration = 600

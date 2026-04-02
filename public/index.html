@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.159.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.159.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4592&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>nintreesssss - Portfolio</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>NINTREESSSSS</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  
 </head>
 <body>
+  
   <main class="main-layout">
     
     <aside class="sidebar" id="sidebar">
@@ -16,12 +18,12 @@
         
         <div class="sidebar-left">
           
-          <h1 class="site-title" onclick="goHome()">NINTREESSSSS</h1>
+          <h1 class="site-title" id="site-title">NINTREESSSSS</h1>
           
           
           <nav class="nav">
-            <a href="#" onclick="showSection('projects'); return false;" class="nav-link" id="nav-projects">Projects</a>
-            <a href="#" onclick="showSection('information'); return false;" class="nav-link" id="nav-information">Information</a>
+            <a href="#" data-section="projects" class="nav-link" id="nav-projects">Projects</a>
+            <a href="#" data-section="information" class="nav-link" id="nav-information">Information</a>
           </nav>
           
           
@@ -40,7 +42,7 @@
           </p>
           <p class="bio-text">
             My major is Computer Science, a sophomore student.<br>
-            Now working on Computer Graphics & Computer Vision.
+            Now working on Computer Graphics &amp; Computer Vision.
           </p>
           <p class="bio-text">
             Using Languages: Chinese, English, Japanese.
@@ -51,7 +53,7 @@
       
       <div class="tree-container">
         
-        <img src="images/tree-placeholder.png" alt="Tree Illustration" class="tree-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <img src="/images/tree-placeholder.png" alt="Tree Illustration" class="tree-image">
         <div class="image-placeholder tree-placeholder" style="display: none;">
           <span>Tree Illustration<br>请将图片放入 images/ 文件夹</span>
         </div>
@@ -66,7 +68,7 @@
         
         <div class="profile-image-container">
           
-          <img src="images/cb.jpg" alt="Profile" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <img src="/images/cb.jpg" alt="Profile" class="profile-image">
           <div class="image-placeholder profile-placeholder" style="display: none;">
             <span>Profile Image<br>请将图片放入 images/ 文件夹</span>
           </div>
@@ -114,7 +116,7 @@
           </div>
         </div>
       </section>
-
+      
       
       <section class="section-panel" id="projects-section" style="display: none;">
         
@@ -132,14 +134,13 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                
-                <img src="images/projects/3dgs1.png" alt="3DGS Demo 1" class="project-image" onerror="this.outerHTML='<div class=\'image-placeholder project-image\' style=\'width:100%;aspect-ratio:16/9\'><span>3DGS Demo 1</span></div>'">
-                <img src="images/projects/3dgs2.png" alt="3DGS Demo 2" class="project-image" onerror="this.outerHTML='<div class=\'image-placeholder project-image\' style=\'width:100%;aspect-ratio:16/9\'><span>3DGS Demo 2</span></div>'">
+                <img src="/images/projects/3dgs1.png" alt="3DGS Demo 1" class="project-image">
+                <img src="/images/projects/3dgs2.png" alt="3DGS Demo 2" class="project-image">
               </div>
             </div>
           </div>
         </div>
-
+        
         
         <div class="project-card">
           <hr class="project-divider">
@@ -151,12 +152,12 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                <img src="images/projects/7.png" alt="Path Tracing" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Path Tracing - Cornell Box</span></div>'">
+                <img src="/images/projects/7.png" alt="Path Tracing" class="project-image project-image-large">
               </div>
             </div>
           </div>
         </div>
-
+        
         
         <div class="project-card">
           <hr class="project-divider">
@@ -168,12 +169,12 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                <img src="images/projects/6.png" alt="Ray Tracing" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Ray Tracing - Bunny</span></div>'">
+                <img src="/images/projects/6.png" alt="Ray Tracing" class="project-image project-image-large">
               </div>
             </div>
           </div>
         </div>
-
+        
         
         <div class="project-card">
           <hr class="project-divider">
@@ -185,12 +186,12 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images">
-                <img src="images/projects/5.png" alt="Moller-Trumbore" class="project-image project-image-large" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-large\'><span>Moller-Trumbore Demo</span></div>'">
+                <img src="/images/projects/5.png" alt="Moller-Trumbore" class="project-image project-image-large">
               </div>
             </div>
           </div>
         </div>
-
+        
         
         <div class="project-card">
           <hr class="project-divider">
@@ -202,21 +203,24 @@
             <div class="project-media">
               <p class="project-date">2026.3</p>
               <div class="project-images project-images-row">
-                <img src="images/projects/output_normal.png" alt="Cow Model 1" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 1</span></div>'">
-                <img src="images/projects/output_phong.png" alt="Cow Model 2" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 2</span></div>'">
-                <img src="images/projects/output_texture.png" alt="Cow Model 3" class="project-image project-image-small" onerror="this.outerHTML='<div class=\'image-placeholder project-image project-image-small\'><span>Cow 3</span></div>'">
+                <img src="/images/projects/output_normal.png" alt="Cow Model 1" class="project-image project-image-small">
+                <img src="/images/projects/output_phong.png" alt="Cow Model 2" class="project-image project-image-small">
+                <img src="/images/projects/output_texture.png" alt="Cow Model 3" class="project-image project-image-small">
               </div>
             </div>
           </div>
         </div>
-
+        
         
         <hr class="project-divider" style="margin-top: 1rem;">
-        <button class="top-button" onclick="scrollToTop()">Top</button>
+        <button class="top-button">Top</button>
       </section>
     </div>
   </main>
 
-  <script src="js/main.js"></script>
+
+  <script>window.SiteParams = "{\"animation\":true,\"animationduration\":600,\"bio_lines\":[\"Macau University of Science and Technology\",\"My major is Computer Science, a sophomore student.\",\"Now working on Computer Graphics \\u0026 Computer Vision.\",\"Using Languages: Chinese, English, Japanese.\"],\"email\":\"nintreesssss@gmail.com\",\"github\":\"https://github.com/nintreesssss\",\"instagram\":\"https://www.instagram.com/ninetreesss/\",\"profileimage\":\"/images/cb.jpg\",\"sitetitle\":\"NINTREESSSSS\",\"treeimage\":\"/images/tree-placeholder.png\"}";</script>
+  <script src="/js/main.js"></script>
+  
 </body>
 </html>
