@@ -49,14 +49,71 @@ function initParallaxBackdrop() {
 
   var imageSrc = backdrop.dataset.image || '/images/tree-placeholder.png';
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  var layersConfig = [
-    { opacity: 0.94, nodeSize: 720, pitchX: 900, pitchY: 760, angle: 16, offsetX: 0, offsetY: 0 },
-    { opacity: 0.97, nodeSize: 720, pitchX: 900, pitchY: 760, angle: 34, offsetX: 300, offsetY: 210 },
-    { opacity: 1.0, nodeSize: 720, pitchX: 900, pitchY: 760, angle: 52, offsetX: 600, offsetY: 420 }
-  ];
+  var svgNS = 'http://www.w3.org/2000/svg';
+  var xlinkNS = 'http://www.w3.org/1999/xlink';
+  var maskCounter = 0;
 
   var layers = [];
+
+  function createMaskedTreeNode(src) {
+    var svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('viewBox', '0 0 100 100');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    svg.setAttribute('aria-hidden', 'true');
+
+    var defs = document.createElementNS(svgNS, 'defs');
+    var mask = document.createElementNS(svgNS, 'mask');
+    var maskId = 'tree-cutout-mask-' + (maskCounter++);
+    mask.setAttribute('id', maskId);
+    mask.setAttribute('maskUnits', 'userSpaceOnUse');
+    mask.setAttribute('maskContentUnits', 'userSpaceOnUse');
+    mask.setAttribute('x', '0');
+    mask.setAttribute('y', '0');
+    mask.setAttribute('width', '100');
+    mask.setAttribute('height', '100');
+
+    var visibleRect = document.createElementNS(svgNS, 'rect');
+    visibleRect.setAttribute('x', '0');
+    visibleRect.setAttribute('y', '0');
+    visibleRect.setAttribute('width', '100');
+    visibleRect.setAttribute('height', '100');
+    visibleRect.setAttribute('fill', 'white');
+
+    // Downward equilateral triangle, slightly rotated left, cut out from canopy center.
+    var cutout = document.createElementNS(svgNS, 'polygon');
+    cutout.setAttribute('points', '21.25 24.20 78.75 24.20 50 74.00');
+    cutout.setAttribute('fill', 'black');
+    cutout.setAttribute('transform', 'rotate(-5 50 47)');
+
+    mask.appendChild(visibleRect);
+    mask.appendChild(cutout);
+    defs.appendChild(mask);
+    svg.appendChild(defs);
+
+    var image = document.createElementNS(svgNS, 'image');
+    image.setAttribute('x', '0');
+    image.setAttribute('y', '0');
+    image.setAttribute('width', '100');
+    image.setAttribute('height', '100');
+    image.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    image.setAttribute('mask', 'url(#' + maskId + ')');
+    image.setAttributeNS(xlinkNS, 'href', src);
+    image.setAttribute('href', src);
+
+    svg.appendChild(image);
+    return svg;
+  }
+
+  function createLayersConfig(vw) {
+    var unit = Math.round(vw / 3);
+    var baseNodeSize = Math.max(460, Math.min(760, unit));
+
+    return [
+      { opacity: 0.76, nodeSize: Math.round(baseNodeSize * 1.5 * 0.81), sizeScale: 0.81, nodeRotOffset: 0, layerAngle: -15, speedMul: 0.90, dirDeg: 265 },
+      { opacity: 0.88, nodeSize: Math.round(baseNodeSize * 1.5 * 0.90), sizeScale: 0.90, nodeRotOffset: 0, layerAngle: 0, speedMul: 1.00, dirDeg: 270 },
+      { opacity: 1.0, nodeSize: Math.round(baseNodeSize * 1.5 * 1.00), sizeScale: 1.00, nodeRotOffset: 0, layerAngle: 15, speedMul: 1.12, dirDeg: 275 }
+    ];
+  }
 
   function buildLayers() {
     backdrop.innerHTML = '';
@@ -64,6 +121,9 @@ function initParallaxBackdrop() {
 
     var vw = window.innerWidth;
     var vh = window.innerHeight;
+    var layersConfig = createLayersConfig(vw);
+    var sharedPitchX = Math.round(layersConfig[layersConfig.length - 1].nodeSize * 0.76);
+    var sharedPitchY = Math.round(layersConfig[layersConfig.length - 1].nodeSize * 0.76);
 
     layersConfig.forEach(function(cfg) {
       var layer = document.createElement('div');
@@ -71,51 +131,58 @@ function initParallaxBackdrop() {
       layer.style.opacity = String(cfg.opacity);
       backdrop.appendChild(layer);
 
-      var padX = cfg.pitchX * 2;
-      var padY = cfg.pitchY * 2;
-      var minX = -padX + cfg.offsetX;
-      var minY = -padY + cfg.offsetY;
+      var pitchX = sharedPitchX;
+      var pitchY = sharedPitchY;
+
+      var padX = pitchX * 3;
+      var padY = pitchY * 3;
+      var minX = -padX;
+      var minY = -padY;
       var maxX = vw + padX;
       var maxY = vh + padY;
 
-      for (var y = minY; y < maxY; y += cfg.pitchY) {
-        for (var x = minX; x < maxX; x += cfg.pitchX) {
+      for (var y = minY; y < maxY; y += pitchY) {
+        for (var x = minX; x < maxX; x += pitchX) {
+          var posX = x;
+          var posY = y;
+
           var node = document.createElement('div');
           node.className = 'parallax-node';
-          node.style.left = x + 'px';
-          node.style.top = y + 'px';
+          node.style.left = posX + 'px';
+          node.style.top = posY + 'px';
           node.style.setProperty('--node-size', cfg.nodeSize + 'px');
           node.style.setProperty('--node-opacity', '1');
-          node.style.setProperty('--node-rot', cfg.angle + 'deg');
-          node.style.setProperty('--cutout-rot', cfg.angle + 'deg');
+          node.style.setProperty('--node-rot', cfg.nodeRotOffset + 'deg');
 
-          var img = document.createElement('img');
-          img.src = imageSrc;
-          img.alt = '';
-          img.decoding = 'async';
-          node.appendChild(img);
+          node.appendChild(createMaskedTreeNode(imageSrc));
           layer.appendChild(node);
         }
       }
 
-      layers.push({ el: layer, pitchX: cfg.pitchX, pitchY: cfg.pitchY });
+      layers.push({
+        el: layer,
+        pitchX: pitchX,
+        pitchY: pitchY,
+        speedMul: cfg.speedMul,
+        layerAngle: cfg.layerAngle,
+        dirDeg: cfg.dirDeg
+      });
     });
   }
 
-  var directionDeg = 265;
-  var directionRad = directionDeg * (Math.PI / 180);
-  var speedPxPerSec = 30.8; // ~10% faster than previous tuning
+  var speedPxPerSec = 34.0;
 
   function animate(ts) {
     var t = ts * 0.001;
     var dist = prefersReducedMotion ? 0 : t * speedPxPerSec;
-    var dx = Math.cos(directionRad) * dist;
-    var dy = Math.sin(directionRad) * dist;
 
     layers.forEach(function(layer) {
+      var dir = layer.dirDeg * (Math.PI / 180);
+      var dx = Math.cos(dir) * dist * layer.speedMul;
+      var dy = Math.sin(dir) * dist * layer.speedMul;
       var wrapX = ((dx % layer.pitchX) + layer.pitchX) % layer.pitchX;
       var wrapY = ((dy % layer.pitchY) + layer.pitchY) % layer.pitchY;
-      layer.el.style.transform = 'translate3d(' + wrapX.toFixed(2) + 'px,' + wrapY.toFixed(2) + 'px,0)';
+      layer.el.style.transform = 'translate3d(' + wrapX.toFixed(2) + 'px,' + wrapY.toFixed(2) + 'px,0) rotate(' + layer.layerAngle + 'deg)';
     });
 
     requestAnimationFrame(animate);

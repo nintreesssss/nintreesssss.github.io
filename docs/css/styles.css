@@ -144,35 +144,24 @@ body.content-open {
 
 .parallax-layer {
   position: absolute;
-  inset: -12vh -12vw;
+  inset: -35vh -35vw;
   will-change: transform;
+  transform-origin: 50% 50%;
 }
 
 .parallax-node {
   position: absolute;
-  width: var(--node-size, 720px);
+  width: var(--node-size, 840px);
   aspect-ratio: 1 / 1;
   opacity: var(--node-opacity, 1);
   transform: rotate(var(--node-rot, 0deg));
 }
 
-.parallax-node img {
+.parallax-node svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
   display: block;
-}
-
-.parallax-node::after {
-  content: "";
-  position: absolute;
-  top: 45%;
-  left: 55%;
-  width: 70%;
-  height: 70%;
-  background: #717171;
-  clip-path: polygon(50% 10%, 6% 90%, 94% 90%);
-  transform: translate(-50%, -50%) rotate(var(--cutout-rot, 0deg));
+  overflow: visible;
 }
 
 /* When viewing homepage (sidebar full-width), allow page to scroll normally */
