@@ -21,7 +21,7 @@ items:
   - title: "SuGaR Project Reproduction"
     link: "https://github.com/Anttwo/SuGaR"
     description: "Reproduction of SuGaR"
-    techlines:
+    techLines:
       - "PyTorch,"
       - "3DGS"
     date: "2026.4"
