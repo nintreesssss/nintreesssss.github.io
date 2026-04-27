@@ -100,7 +100,7 @@
           <hr class="project-divider">
           <div class="project-grid">
             <div class="project-info">
-              <h3 class="project-title">
+              <h3 class="project-title"{{ with .titleFontSize }} style="font-size: {{ . }};"{{ end }}>
                 {{ if .link }}
                 <a href="{{ .link }}" target="_blank">{{ .title }}</a>
                 {{ else }}

@@ -8,6 +8,7 @@
  # Optional fields:
  # - link: clickable title URL
  # - description: short summary shown under the title
+ # - titleFontSize: optional title font size, e.g. "1.35rem" or "24px"
  # - techLines: list of tech-stack lines, rendered with <br>
  # - imagesClass: extra class for the whole image row, e.g. "project-images-row"
  # - image fields:
@@ -21,6 +22,7 @@ items:
   - title: "SuGaR Project Reproduction"
     link: "https://github.com/Anttwo/SuGaR"
     description: "Reproduction of SuGaR"
+    titleFontSize: "1.4rem"
     techLines:
       - "PyTorch,"
       - "3DGS"
@@ -41,6 +43,7 @@ items:
   - title: "3DGS-Unity-Task"
     link: "https://github.com/nintreesssss/3DGS-Unity-Task"
     description: "Integration of Virtual and Real"
+    titleFontSize: "1.4rem"
     techLines:
       - "3DGS,"
       - "Unity"
