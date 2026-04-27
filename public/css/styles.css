@@ -310,7 +310,7 @@ body.home .main-layout {
   right: 0;
   bottom: 0;
   left: auto;
-  width: 50vw;
+  width: 59vw;
   max-width: calc(100vw - 650px);
   overflow-y: auto; /* scroll only this panel */
   -webkit-overflow-scrolling: touch;
