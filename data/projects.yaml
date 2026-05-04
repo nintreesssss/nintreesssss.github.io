@@ -19,6 +19,27 @@
  #   - maxWidth: optional max-width, e.g. "none" or "640px"
 
 items:
+  - title: "Guassian-Grouping Project Reproduction"
+    link: "https://github.com/lkeab/gaussian-grouping"
+    description: "Reproduction of Gaussian-Grouping"
+    titleFontSize: "1.4rem"
+    techLines:
+      - "PyTorch,"
+      - "3DGS"
+    date: "2026.4"
+    imagesClass: ""
+    images:
+      - src: "/images/projects/GGcom1.png"
+        alt: "Gaussian-Grouping 1"
+        class: "project-image-large"
+        width: "110%"
+        maxWidth: "none"
+      - src: "/images/projects/GGcom2.png"
+        alt: "Gaussian-Grouping 2"
+        class: "project-image-large"
+        width: "110%"
+        maxWidth: "none"
+
   - title: "SuGaR Project Reproduction"
     link: "https://github.com/Anttwo/SuGaR"
     description: "Reproduction of SuGaR"
